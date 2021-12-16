@@ -1,4 +1,3 @@
-const int buzzer = 9; // sets the data pin to 9
 int ThermistorPin = A0; // sets or temperature sensor to pin A0
 int Vo;
 float R1 = 10000;
@@ -16,11 +15,9 @@ float num5;
 
 void setup () {
   Serial.begin (9600);
-pinMode(buzzer, OUTPUT);
 }
 
 void loop () {
-  buzzer(); // calls our buzzer loop
   pressureReading(); // calls our pressure loop
   temperatureReading(); // calls our temperature loop
   printResults(); // calls all our print statements from all our sensors
@@ -35,7 +32,7 @@ void pressureReading() {
   num3 = log10 (num2);
   num4 = (num3 / 5.25588);
   num5 = pow(10.0, num4) - 1.0;
-  altitude =  num5 / -0.0000225577 + 81; // remove the 81 with better sensor    
+  altitude =  num5 / -0.0000225577 + (81); // remove the 81 with better sensor
 }
 
 void temperatureReading() {
@@ -56,9 +53,3 @@ void printResults() {
   Serial.println(Tc);
   delay (500);
   }
-void buzzer() {
-  tone(buzzer, 1000); // sets the frequency of buzzer to 1khz
-  delay(1000); // the tone lasts for 1 second
-  noTone(buzzer); // stops buzzer 
-  delay(1000); // waits a second, then restarts the loop
-}

@@ -6,4 +6,6 @@ SligoSat's electronic diagram for the main sensor board, based on the AAU PCB (s
  
  -- circuit_diagram_editable.cddx : circuit diagram that can be opened in suitable schematic designer
  
+<img src="schematic.png"> 
+ 
 All diagrams made using the open-source tool www.circuitdiagram.org.
